@@ -1,0 +1,13 @@
+# Site settings
+title: BBSRC Reproducible Analysis Demo
+email: russpold@stanford.edu
+description: > # this means to ignore newlines until "baseurl:"
+    Walkthrough example of reproducible practices.
+baseurl: "/BBSRC/" # the subpath of your site, e.g. /blog/
+url: "http://poldrack.github.io" # the base hostname & protocol for your site
+twitter_username: russpoldrack 
+github_username:  poldrack
+
+# Build settings
+markdown: kramdown
+
