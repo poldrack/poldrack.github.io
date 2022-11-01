@@ -1,1 +1,1 @@
-I'm Russ Poldrack, Professor of Psychology at Stanford.  
+I'm Russ Poldrack, [Professor of Psychology at Stanford](https://profiles.stanford.edu/russell-poldrack).  This is where I blog about various things: neuroscience, psychology, reproducibility and open science, data science, and life. 
