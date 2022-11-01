@@ -28,6 +28,8 @@ TODOs
 
 import sys
 from pathlib import Path
+import os
+
 
 try:
     import feedparser
@@ -37,15 +39,14 @@ except ImportError:
     print("Run 'pip install feedparser typer yaml'")
 
 
-def main(
+if __name__ == "__main__":
  #   input_file: Path,
  #   output_dir: Path,
  #   tag: str = typer.Option("legacy-blogger", help="Tag to add to frontmatter"),
  #   show_original: bool = typer.Option(True, help="Link MD files to original articles"),
-):
 
-    #typer.secho(f"Parsing data from '{input_file}'", fg=typer.colors.GREEN)
     input_file = Path('blog-11-01-2022.xml')
+    print(f"Parsing data from '{input_file}'")
     output_dir = Path('output')
     tag = 'legacy-blogger'
     show_original = True
@@ -78,67 +79,59 @@ def main(
             continue
 
     # Write the markdown files
-    typer.secho(
-        f"Writing {len(posts)} blogger posts to markdown files", fg=typer.colors.GREEN
-    )
-    with typer.progressbar(posts.items()) as posts_progress:
-        for key, value in posts_progress:
-            # Get a MD filename from the original HTML URL
-            filename = key.replace(".html", ".md")
-            filename = filename.replace(data["feed"]["link"], "")
-            link = data["feed"]["link"].replace("http", "https")
-            filename = filename.replace(link, "")
-            # print('\n',link, data['feed']['link'], filename)
-            # Catches some of the configuration elements
-            if len(filename.strip()) == 0:
-                continue
-            # bypasses simple pages, TODO: Provide option to create MD pages
-            if filename.startswith("p-"):
-                continue
-            filename = filename.replace("/", "-")
-            # Get a list of tags
-            tags = [x["term"] for x in value.tags]
-            tags = [
-                x
-                for x in tags
-                if x != "https://schemas.google.com/blogger/2008/kind#post"
-            ]
-            # Add the tag option to list of tags
-            tags.append(tag)
-            frontmatter = {
-                "date": value["published"],
-                "published": True,
-                "slug": filename.replace(".md", ""),
-                "tags": tags,
-                "time_to_read": 5,
-                "title": value["title"],
-                "description": "",
-            }
-            with open(f"{output_dir.joinpath(filename)}", "w") as f:
-                # Set the frontmatter
-                f.write("---\n")
-                f.write(yaml.dump(frontmatter))
-                f.write("---\n\n")
-                if show_original:
-                    # Set a link to the original content
+    print(f"Writing {len(posts)} blogger posts to markdown files")
+    for key, value in posts.items():
+        # Get a MD filename from the original HTML URL
+        filename = value['published'].split('T')[0] + '-' + os.path.basename(key).replace(".html", ".md")
+        # print('\n',link, data['feed']['link'], filename)
+        # Catches some of the configuration elements
+        if len(filename.strip()) == 0:
+            continue
+        # bypasses simple pages, TODO: Provide option to create MD pages
+        if filename.startswith("p-"):
+            continue
+        filename = filename.replace("/", "-")
+        # Get a list of tags
+        tags = [x["term"] for x in value.tags]
+        tags = [
+            x
+            for x in tags
+            if x != "https://schemas.google.com/blogger/2008/kind#post"
+        ]
+        # Add the tag option to list of tags
+        tags.append(tag)
+        frontmatter = {
+            "date": value["published"],
+            "published": True,
+            "slug": filename.replace(".md", ""),
+            "tags": tags,
+            "time_to_read": 5,
+            "title": value["title"],
+            "description": "",
+        }
+        with open(f"{output_dir.joinpath(filename)}", "w") as f:
+            # Set the frontmatter
+            f.write("---\n")
+            f.write(yaml.dump(frontmatter))
+            f.write("---\n\n")
+            if show_original:
+                # Set a link to the original content
+                f.write(
+                    f"*This was originally posted on blogger [here]({key})*.\n\n"
+                )
+            # Write the HTML, TODO: consider converting to markdown
+            f.write(value["summary"])
+            # If any comments, add them
+            if value["comments"]:
+                f.write("\n\n---\n\n")
+                f.write(
+                    f'## {len(value["comments"])} comments captured from [original post]({key}) on Blogger\n\n'
+                )
+                for comment in value["comments"]:
                     f.write(
-                        f"*This was originally posted on blogger [here]({key})*.\n\n"
+                        f"**{comment['author_detail']['name']} said on {comment['published'][:10]}**\n\n"
                     )
-                # Write the HTML, TODO: consider converting to markdown
-                f.write(value["summary"])
-                # If any comments, add them
-                if value["comments"]:
-                    f.write("\n\n---\n\n")
-                    f.write(
-                        f'## {len(value["comments"])} comments captured from [original post]({key}) on Blogger\n\n'
-                    )
-                    for comment in value["comments"]:
-                        f.write(
-                            f"**{comment['author_detail']['name']} said on {comment['published'][:10]}**\n\n"
-                        )
-                        f.write(comment["summary"])
-                        f.write("\n\n")
+                    f.write(comment["summary"])
+                    f.write("\n\n")
 
 
-if __name__ == "__main__":
-    typer.run(main)
