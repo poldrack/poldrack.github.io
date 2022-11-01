@@ -1,6 +1,6 @@
 ## Reading "Error Tight" by Julia Strand
 
-Today in our lab meeting we read ["Error Tight: Exercises for Lab Groups to Prevent Research Mistakes"](https://psyarxiv.com/rsn5y/) by @juliafstrand.  It's a great paper and led to some really fun discussions! 
+Today in our lab meeting we read ["Error Tight: Exercises for Lab Groups to Prevent Research Mistakes"](https://psyarxiv.com/rsn5y/) by [Julia Strand](https://mastodon.online/@juliafstrand).  It's a great paper and led to some really fun discussions! 
 
 The paper makes the point that errors are a necessary feature of human activity, including science, and that there are well-established methods from human factors psychology to reduce the frequency and impact of errors, which she refers to as "safety culture."  If you wonder why airplanes don't crash very often, safety culture is an important part of that.  Julia lays out a number of learnings from this work that we can bring to bear on making our science better.  I think that our lab has already incorporated a lot of these ideas into our everyday workflows, and in particular we have tried to make the lab a "blame-free zone" for reporting errors, as we discussed [previously](https://reproducibility.stanford.edu/coding-error-postmortem/).  Here were a few points that came up in our discussion.
 
