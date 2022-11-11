@@ -2,4 +2,4 @@
 title: "poldrack.github.io"
 ---
 
-For Russ Poldrack's blog, see [here][russpoldrack.org/blog]
+For Russ Poldrack's blog, see [here](https://russpoldrack.org/blog)
