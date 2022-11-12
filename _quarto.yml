@@ -5,14 +5,17 @@ project:
 website:
   title: "poldrack.github.io"
   navbar:
-    left:
-      - href: index.qmd
-        text: Home
-      - about.qmd
+    right:
+      - text: "About"
+        href: https://profiles.stanford.edu/russell-poldrack
+      - icon: github
+        href: https://github.com/poldrack
+      - icon: mastodon
+        href: https://mastodon.online/@Russpoldrack
 
 format:
   html:
-    theme: cosmo
+    theme: flatly
     css: styles.css
     toc: true
 
