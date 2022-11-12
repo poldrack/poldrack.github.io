@@ -8,9 +8,9 @@ website:
   navbar:
     left:
       - text: "Publications"
-        href: publications.qmd
+        href: publications
       - text: "Talks"
-        href: poldrack.github.io/talks
+        href: talks
       - text: "Blog"
         href: https://poldrack.github.io/blog
     right:
