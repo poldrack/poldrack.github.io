@@ -1,5 +1,35 @@
 ---
 title: "poldrack.github.io"
+format:
+  html:
+    page-layout: full
 ---
 
-For Russ Poldrack's blog, see [here](https://poldrack.github.io/blog)
+
+:::: {.grid}
+
+::: {.g-col-4}
+![](https://profiles.stanford.edu/proxy/api/cap/profiles/61598/resources/profilephoto/350x350.1509537897044.jpg){.roundedimg .absolute height=10%}
+
+<div class='centered'>
+Russell Poldrack, Ph.D.
+
+Professor of Psychology
+
+Stanford University
+
+[Google Scholar](https://scholar.google.com/citations?user=RbmLvDIAAAAJ&hl=en)
+
+[Wikipedia](https://en.wikipedia.org/wiki/Russell_Poldrack)
+</div>
+
+:::
+
+::: {.g-col-8}
+## About me
+
+I'm Russ.
+
+:::
+
+::::

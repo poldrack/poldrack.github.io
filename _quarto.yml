@@ -4,12 +4,18 @@ project:
 
 website:
   title: "poldrack.github.io"
+ 
   navbar:
+    left:
+      - text: Talks
+        href: poldrack.github.io/talks
     right:
       - text: "Blog"
         href: https://poldrack.github.io/blog
       - text: "About"
         href: https://profiles.stanford.edu/russell-poldrack
+      - icon: wikipedia
+        href: https://en.wikipedia.org/wiki/Russell_Poldrack
       - icon: github
         href: https://github.com/poldrack
       - icon: mastodon
