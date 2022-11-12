@@ -1,0 +1,30 @@
+---
+title: "Russ Poldrack - Publications"
+format:
+  html:
+    page-layout: full
+---
+
+```{python}
+#| echo: false
+#| output: asis
+#| warning: false
+#| message: false
+
+# this code uses the output from autocv to put together a list of publications
+
+from autocv.researcher import Researcher
+from autocv.markdown import MarkdownCV
+import json
+
+
+autocv_params = json.load(open('settings.json'))
+r = Researcher(autocv_params['paramfile'], format='md')
+r.from_json(autocv_params['jsonfile'])
+
+md = MarkdownCV(r)
+md.render_md()
+
+print(md.publications)
+
+```
