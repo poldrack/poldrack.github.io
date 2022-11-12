@@ -7,7 +7,7 @@ website:
   navbar:
     right:
       - text: "Blog"
-        https://poldrack.github.io/blog/
+        href: https://poldrack.github.io/blog
       - text: "About"
         href: https://profiles.stanford.edu/russell-poldrack
       - icon: github
