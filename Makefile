@@ -1,4 +1,6 @@
 render-site:
 	quarto render .
-	git commit -a -m"updating docs"
+	-git add -u
+	-git add docs/*
+	-git commit -m"updating docs"
 	git push origin main
