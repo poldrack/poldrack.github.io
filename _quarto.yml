@@ -7,11 +7,13 @@ website:
  
   navbar:
     left:
-      - text: Talks
+      - text: "Publications"
+        href: publications.qmd
+      - text: "Talks"
         href: poldrack.github.io/talks
-    right:
       - text: "Blog"
         href: https://poldrack.github.io/blog
+    right:
       - text: "About"
         href: https://profiles.stanford.edu/russell-poldrack
       - icon: wikipedia

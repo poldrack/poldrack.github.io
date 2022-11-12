@@ -12,7 +12,6 @@ format:
 ![](https://profiles.stanford.edu/proxy/api/cap/profiles/61598/resources/profilephoto/350x350.1509537897044.jpg){.roundedimg .absolute height=10%}
 
 <div class='centered'>
-Russell Poldrack, Ph.D.
 
 Professor of Psychology
 
