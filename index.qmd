@@ -22,6 +22,9 @@ Stanford University
 [Wikipedia](https://en.wikipedia.org/wiki/Russell_Poldrack)
 
 [Poldracklab website](http://www.poldracklab.org)
+
+<a rel="me" href="https://mastodon.online/@Russpoldrack">Mastodon</a>
+
 </div>
 
 :::
@@ -31,15 +34,16 @@ Stanford University
 
 I'm a cognitive neuroscientist who studies how the brain gives rise to the mind.  I'm also deeply interested in improving the way that science is done, by providing researchers with tools to help them do research that is more reproducible and more transparent.
 
-I'm currently the Albert Ray Lang Professor of Psychology at Stanford University.  You can learn more about the work that my lab does from our lab web site, [poldracklab.org](https://www.poldracklab.org).  We also have an online lab manual that outlines our polices and standard operating procedures, as well as my mentoring philosophy: [poldracklab.github.io](https://poldracklab.github.io).
+I received my BA in Psychology from Baylor University and my PhD from the University of Illinois at Urbana Champaign.  I'm currently the Albert Ray Lang Professor of Psychology at Stanford University.  You can learn more about the work that my lab does from our lab web site, [poldracklab.org](https://www.poldracklab.org).  We also have an online lab manual that outlines our polices and standard operating procedures, as well as my mentoring philosophy: [poldracklab.github.io](https://poldracklab.github.io).
 
-I am also an Associate Director for [Stanford Data Science](https://datascience.stanford.edu/), and Director of the [Center for Open and Reproducible Science](https://cores.stanford.edu/).
+I am also an Associate Director for [Stanford Data Science](https://datascience.stanford.edu/), and Director of the [Center for Open and Reproducible Science](https://cores.stanford.edu/). 
 
 I've published several books:
-
+- [Statistical Thinking for the 21st Century](https://statsthinking21.org/)
 - [Hard to Break: Why Our Brains Make Habits Stick](https://press.princeton.edu/books/hardcover/9780691194325/hard-to-break)
 - [The New Mind Readers: What Neuroimaging Can and Cannot Reveal about Our Thoughts](https://press.princeton.edu/books/hardcover/9780691178615/the-new-mind-readers)
 - [Handbook of fMRI Data Analysis (with Jeanette Mumford and Tom Nichols)](https://sites.google.com/site/fmridataanalysis/home)
+
 :::
 
 ::::
