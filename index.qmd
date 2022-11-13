@@ -20,9 +20,10 @@ Stanford University
 [Google Scholar](https://scholar.google.com/citations?user=RbmLvDIAAAAJ&hl=en)
 
 [Wikipedia](https://en.wikipedia.org/wiki/Russell_Poldrack)
-</div>
 
 [Poldracklab website](http://www.poldracklab.org)
+</div>
+
 :::
 
 ::: {.g-col-8}

@@ -27,8 +27,8 @@ md = MarkdownCV(r)
 md.render_md()
 
 print(md.publications)
-
-print(f'Updated: {date.today()} - Created using [autocv](https://github.com/poldrack/autoCV)')
+print('\ \n\ \n')
+print(f'*Updated: {date.today()} - Publication list created using [autocv](https://github.com/poldrack/autoCV)*')
 
 
 ```
