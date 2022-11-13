@@ -16,6 +16,7 @@ format:
 from autocv.researcher import Researcher
 from autocv.markdown import MarkdownCV
 import json
+from datetime import date
 
 
 autocv_params = json.load(open('settings.json'))
@@ -26,5 +27,8 @@ md = MarkdownCV(r)
 md.render_md()
 
 print(md.publications)
+
+print(f'Updated: {date.today()} - Created using [autocv](https://github.com/poldrack/autoCV)')
+
 
 ```
