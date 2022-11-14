@@ -35,6 +35,7 @@ for repo in user.get_repos():
         response = requests.get(repo_page)
         if response.status_code != 200:
             continue
+        releases = list(repo.get_releases())
         repoinfo.append(
             [
                 repo.name.replace('talks-', '').capitalize(),
