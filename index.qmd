@@ -12,8 +12,6 @@ format:
 
 <div class='centered'>
 
-Russell Poldrack, Ph.D.
-
 Professor of Psychology
 
 Stanford University
