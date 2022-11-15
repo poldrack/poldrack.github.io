@@ -5,6 +5,9 @@ format:
     page-layout: full
 ---
 
+Note: This repository only contains talks generated using my new Markdown-based workflow, starting in November 2022.
+
+
 ```{python}
 #| echo: false
 #| output: asis
