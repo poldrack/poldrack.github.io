@@ -1,3 +1,5 @@
+# add back rel=me link to mastodon profile
+
 with open('docs/index.html') as f:
     html = f.read()
 
