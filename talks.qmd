@@ -57,6 +57,7 @@ for i, row in repos_df.iterrows():
     print(f"[{row['name']}]({row['url']}): {row['description']}")
     print('')
     print(f"  - [View current version of talk]({row['url']}/talk) (last updated {row.date.strftime('%m/%d/%Y')})")
+    print('')
 
 
 ```
