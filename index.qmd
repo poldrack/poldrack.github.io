@@ -22,7 +22,7 @@ Stanford University
 
 [Poldracklab website](http://www.poldracklab.org)
 
-<a href="https://mastodon.online/@Russpoldrack" rel="me">Mastodon</a>
+<a rel="me" href="https://mastodon.online/@Russpoldrack">Mastodon</a>
 
 </div>
 
