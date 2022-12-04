@@ -61,3 +61,6 @@ for i, row in repos_df.iterrows():
 
 
 ```
+
+
+These talks are built using [Quarto](https://quarto.org/), based on my [talks template](https://github.com/poldrack/talks-template).
