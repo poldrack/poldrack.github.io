@@ -33,7 +33,7 @@ repoinfo = []
 
 for repo in user.get_repos():
     if repo.name.startswith("talks") and repo.name.find('-template') == -1:
-        repo_page = f'https://github.com/poldrack/{repo.name}'
+        repo_page = f'https://poldrack.github.io/{repo.name}'
         # make sure the talk repo has a web page
         response = requests.get(repo_page)
         if response.status_code != 200:
