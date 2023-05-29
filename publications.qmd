@@ -11,24 +11,30 @@ format:
 #| warning: false
 #| message: false
 
-# this code uses the output from autocv to put together a list of publications
-
-from autocv.researcher import Researcher
-from autocv.markdown import MarkdownCV
-import json
+# this code uses academicdb to put together a list of publications
 from datetime import date
+from contextlib import suppress
+from academicdb.dbbuilder import setup_db
+from academicdb.utils import escape_characters_for_latex
+from academicdb.render_pubs import get_publications
+import logging
+import argparse
+import os
 
+configfile = 'config.toml'
+if not os.path.exists(configfile):
+    raise FileNotFoundError(
+        f'You must first set up the config.toml file'
+    )
 
-autocv_params = json.load(open('settings.json'))
-r = Researcher(autocv_params['paramfile'], format='md')
-r.from_json(autocv_params['jsonfile'])
+db = setup_db(configfile)
 
-md = MarkdownCV(r)
-md.render_md()
+print(get_publications(
+        db.get_collection('publications'),
+    ))
 
-print(md.publications)
 print('\ \n\ \n')
-print(f'*Updated: {date.today()} - Publication list created using [autocv](https://github.com/poldrack/autoCV)*')
+print(f'*Updated: {date.today()} - Publication list created using [autocv](https://github.com/poldrack/academicdb)*')
 
 
 ```
