@@ -147,7 +147,7 @@ ul.task-list li input[type="checkbox"] {
 <p><a href="https://scholar.google.com/citations?user=RbmLvDIAAAAJ&amp;hl=en">Google Scholar</a></p>
 <p><a href="https://en.wikipedia.org/wiki/Russell_Poldrack">Wikipedia</a></p>
 <p><a href="http://www.poldracklab.org">Poldracklab website</a></p>
-<p><a rel="me" href="https://mastodon.online/@Russpoldrack">Mastodon</a></p>
+<p><a href="https://mastodon.online/@Russpoldrack" rel="me">Mastodon</a></p>
 </div>
 </div>
 <section id="about-me" class="level2 g-col-8">
@@ -157,7 +157,7 @@ ul.task-list li input[type="checkbox"] {
 <p>I am also an Associate Director for <a href="https://datascience.stanford.edu/">Stanford Data Science</a>, and Director of the <a href="https://cores.stanford.edu/">Center for Open and Reproducible Science</a>.</p>
 <p>I’ve published several books:</p>
 <ul>
-<li><a href="https://statsthinking21.org/">Statistical Thinking for the 21st Century</a></li>
+<li><a href="https://press.princeton.edu/books/hardcover/9780691250939/statistical-thinking">Statistical Thinking: Analyzing Data in an Uncertain World</a></li>
 <li><a href="https://press.princeton.edu/books/hardcover/9780691194325/hard-to-break">Hard to Break: Why Our Brains Make Habits Stick</a></li>
 <li><a href="https://press.princeton.edu/books/hardcover/9780691178615/the-new-mind-readers">The New Mind Readers: What Neuroimaging Can and Cannot Reveal about Our Thoughts</a></li>
 <li><a href="https://sites.google.com/site/fmridataanalysis/home">Handbook of fMRI Data Analysis (with Jeanette Mumford and Tom Nichols)</a></li>
@@ -286,6 +286,16 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
   const xrefs = window.document.querySelectorAll('a.quarto-xref');
   const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
     if (id.startsWith('sec-')) {
       // Special case sections, only their first couple elements
       const container = document.createElement("div");
@@ -298,6 +308,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         return note.innerHTML;
       }
     } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
       return note.innerHTML;
     }
   }
@@ -317,7 +332,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         const note = window.document.getElementById(id);
         if (note !== null) {
           try {
-            const html = processXRef(id, note);
+            const html = processXRef(id, note.cloneNode(true));
             instance.setContent(html);
           } finally {
             instance.enable();

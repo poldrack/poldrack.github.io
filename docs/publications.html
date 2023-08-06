@@ -630,7 +630,7 @@ ul.task-list li input[type="checkbox"] {
 <h3 class="anchored" data-anchor-id="section-28">1994</h3>
 <p>Poldrack RA, Cohen NJ (1994). On the representational/computational properties of multiple memory systems. <em>Behavioral and Brain Sciences, 17</em>, 416-417. <a href="https://doi.org/10.1017/s0140525x00035275">DOI</a></p>
 <p>&nbsp; &nbsp;</p>
-<p><em>Updated: 2023-07-30 - Publication list created using <a href="https://github.com/poldrack/academicdb">autocv</a></em></p>
+<p><em>Updated: 2023-08-06 - Publication list created using <a href="https://github.com/poldrack/academicdb">autocv</a></em></p>
 
 
 </section>
@@ -754,6 +754,16 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
   const xrefs = window.document.querySelectorAll('a.quarto-xref');
   const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
     if (id.startsWith('sec-')) {
       // Special case sections, only their first couple elements
       const container = document.createElement("div");
@@ -766,6 +776,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         return note.innerHTML;
       }
     } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
       return note.innerHTML;
     }
   }
@@ -785,7 +800,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         const note = window.document.getElementById(id);
         if (note !== null) {
           try {
-            const html = processXRef(id, note);
+            const html = processXRef(id, note.cloneNode(true));
             instance.setContent(html);
           } finally {
             instance.enable();

@@ -22,7 +22,7 @@ Stanford University
 
 [Poldracklab website](http://www.poldracklab.org)
 
-<a rel="me" href="https://mastodon.online/@Russpoldrack">Mastodon</a>
+<a href="https://mastodon.online/@Russpoldrack" rel="me">Mastodon</a>
 
 </div>
 
@@ -39,7 +39,7 @@ I am also an Associate Director for [Stanford Data Science](https://datascience.
 
 I've published several books:
 
-- [Statistical Thinking for the 21st Century](https://statsthinking21.org/)
+- [Statistical Thinking: Analyzing Data in an Uncertain World](https://press.princeton.edu/books/hardcover/9780691250939/statistical-thinking)
 - [Hard to Break: Why Our Brains Make Habits Stick](https://press.princeton.edu/books/hardcover/9780691194325/hard-to-break)
 - [The New Mind Readers: What Neuroimaging Can and Cannot Reveal about Our Thoughts](https://press.princeton.edu/books/hardcover/9780691178615/the-new-mind-readers)
 - [Handbook of fMRI Data Analysis (with Jeanette Mumford and Tom Nichols)](https://sites.google.com/site/fmridataanalysis/home)
