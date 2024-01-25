@@ -22,7 +22,7 @@ Stanford University
 
 [Poldracklab website](http://www.poldracklab.org)
 
-[Mastodon](https://neuromatch.social/@russpoldrack){rel="me"}
+[Bluesky](https://bsky.app/profile/russpoldrack.bsky.social)
 
 </div>
 
