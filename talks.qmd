@@ -5,62 +5,36 @@ format:
     page-layout: full
 ---
 
-Note: This repository only contains talks generated using my new Markdown-based workflow, starting in November 2022.
+## Youtube videos
+
+- [AI-assisted coding: Experiments with GPT-4](https://www.youtube.com/watch?v=5NCV9omx1Hg)
+- [Leveraging large shared neuroimaging datasets using foundation models ](https://www.youtube.com/watch?v=RVxQ-gSnck0)
+- [Reproducibility in fMRI: What is the problem?](https://www.youtube.com/watch?v=_Fg8drMU2qk)
+- Measurement in Neuroscience (4-part series): 
+    - [Part 1: Measuring brain function](https://www.youtube.com/watch?v=r-NRNZLufFw&t=16s)
+    - [Part 2: Mapping mind to brain](https://www.youtube.com/watch?v=6JAI4xaQ0JM)
+    - [Part 3: Brain Decoding: Can fMRI read minds?](https://www.youtube.com/watch?v=dP26pZyUWus)
+    - [Part 4: Interpreting human neuroscience data](https://www.youtube.com/watch?v=0Ssb6wD36Bc&t=21s)
+- [Making cognitive neuroscience more open and reproducible](https://www.youtube.com/watch?v=Hrq5YfLPSSU)
+- [Open tools for reproducible science](https://www.youtube.com/watch?v=aR_tJAWEt_I)
+- [(How) can neuroimaging inform the architecture of the mind?](https://www.youtube.com/watch?v=8oaJ21kSL-4)
+- [The physics of representation](https://www.youtube.com/watch?v=Rcxov-azWPc)
+- [What's wrong with neuroimaging, and how can we make it right? ](https://www.youtube.com/watch?v=s8SWxDq_dXk)
+- [Cognitive Ontologies, from Top to Bottom](https://www.youtube.com/watch?v=2acb4YlT1V8)
+- [Open and reproducibile science in neuroimaging: it takes an ecosystem](https://www.youtube.com/watch?v=LXuFCw_E2xk)
+- [Toward an Open Ecosystem for Neuroimaging Data Analysis and Sharing](https://www.youtube.com/watch?v=EPcQ15Y2YYo)
+- [Toward a Culture of Computational Reproducibility](https://www.youtube.com/watch?v=XjW3t-qXAiE)
 
 
-```{python}
-#| echo: false
-#| output: asis
+## Talk slides
 
-# this uses the GitHub API to find a all talk repos with web pages and list them
-
-from github import Github
-import pandas as pd
-import requests
-
-with open('.token') as f:
-    token = f.read().strip()
-
-# Github username
-username = "poldrack"
-# pygithub object
-g = Github(token)
-# get that user by username
-user = g.get_user(username)
-
-
-repoinfo = []
-
-for repo in user.get_repos():
-    if repo.name.startswith("talks") and repo.name.find('-template') == -1:
-        repo_page = f'https://poldrack.github.io/{repo.name}'
-        # make sure the talk repo has a web page
-        response = requests.get(repo_page)
-        if response.status_code != 200:
-            continue
-        releases = list(repo.get_releases())
-        repoinfo.append(
-            [
-                repo.name.replace('talks-', '').capitalize(),
-                repo.description,
-                repo.updated_at,
-                repo_page
-            ])
-
-repos_df = pd.DataFrame(
-    repoinfo, 
-    columns=[
-        "name", "description", "date", "url"]
-    ).sort_values(by='date', ascending=False)
-
-for i, row in repos_df.iterrows():
-    print(f"[{row['name']}]({row['url']}): {row['description']}")
-    print('')
-    print(f"  - [View current version of talk]({row['url']}/talk/talk.html) (last updated {row.date.strftime('%m/%d/%Y')})")
-    print('')
-
-
-```
-
-
-These talks are built using [Quarto](https://quarto.org/), based on my [talks template](https://github.com/poldrack/talks-template).
+- [Everything you wanted to know about running a lab but were afraid to ask](https://poldrack.github.io/talks-RunningALab/talk/talk.html)
+- [Talks from 2024 Summer School on AI and Cognitive Neuroscience](https://poldrack.github.io/AI_in_CogNeuro/)
+- [Reproducibility in AI/machine learning](https://docs.google.com/presentation/d/1rnuHr4irtxDCobpv0UaOeOTUcei1c3ayaijvCOwPe5M/edit?usp=sharing)
+- [Open(ing) science can make science better](https://docs.google.com/presentation/d/1aK7djHl_DkNR6ZI-eSkCa8kkIpEoEioqNgWOpFJx_3E/edit?usp=sharing)
+- [Reproducibility in neuroimaging: What is the problem?](https://poldrack.github.io/talks-Neurohackademy/talk/talk.html#/title-slide)
+- [BIDS: Past, present, and future](https://docs.google.com/presentation/d/1la_VYOJpWxJmopki5YK29RNPWYPvdCdQ/edit?usp=sharing&ouid=102042762597626922038&rtpof=true&sd=true)
+- [Building an open science community for neuroimaging research](https://docs.google.com/presentation/d/1gV1SUnj-kYOVLyCQ96Zesk6HNdxsi9UVJbUZKK9UX3k/edit?usp=sharing)
+- [The NiPreps ecosystem for reproducible neuroimaging](https://poldrack.github.io/talks-nipreps/talk/talk.html#/title-slide)
+- [Improving the validity of brain-behavior associations](https://poldrack.github.io/talks-BrainBehaviorAssociation/talk/talk.html#/title-slide)
+- [Building a culture of open and reproducible science](https://poldrack.github.io/talks-IncentivingGoodScience/talk/talk.html)
