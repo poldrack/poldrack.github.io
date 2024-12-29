@@ -34,7 +34,7 @@ print(get_publications(
     ))
 
 print('\ \n\ \n')
-print(f'*Updated: {date.today()} - Publication list created using [autocv](https://github.com/poldrack/academicdb)*')
+print(f'*Updated: {date.today()} - Publication list created using [academicdb](https://github.com/poldrack/academicdb)*')
 
 
 ```
