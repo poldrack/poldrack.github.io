@@ -44,6 +44,8 @@ I've published several books:
 - [The New Mind Readers: What Neuroimaging Can and Cannot Reveal about Our Thoughts](https://press.princeton.edu/books/hardcover/9780691178615/the-new-mind-readers)
 - [Handbook of fMRI Data Analysis (with Jeanette Mumford and Tom Nichols)](https://sites.google.com/site/fmridataanalysis/home)
 
+I'm currently writing a living textbook on reproducible coding with AI titled [Better Code, Better Science](https://poldrack.github.io/BetterCodeBetterScience/frontmatter.html). I'm also releasing sections of this new book regularly on my [Substack](https://russpoldrack.substack.com/).
+
 :::
 
 ::::
