@@ -1,5 +1,5 @@
 render-site:
-	quarto render .
+	uv run quarto render .
 	-git add -u
 	-git add docs/*
 	-git commit -m"updating docs"
