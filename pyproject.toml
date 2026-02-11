@@ -1,0 +1,17 @@
+[project]
+name = "poldrack-github-io"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "quarto>=0.1.0",
+    "quarto-cli>=1.6.39",
+    "pygithub>=2.5.0",
+    "pandas>=2.2.3",
+    "academicdb>=0.2.0",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
