@@ -2,49 +2,6 @@
 # Delete an entry under "hide" to keep that preprint visible.
 # Edits to fields are ignored; make content edits in the local app.
 new:
-- doi: 10.31222/osf.io/4qmua_v4
-  title: 'Responsible Research Assessment of Faculty: maximizing quality, transparency, and trustworthiness of scientific research in Research-Performing Organizations'
-  year: 2026
-  publication_date: '2026-10-15'
-  publication_name: null
-  publication_type: preprint
-  is_preprint: true
-  volume: null
-  page_range: null
-  authors:
-  - name: Moher, David
-  - name: Cobey, Kelly Denise
-  - name: Armond, Anna Catharina Vieira
-  - name: Brown, Annette Nicole
-  - name: Cenci, Maximiliano Sergio
-  - name: Chan, Leslie
-  - name: Gambelli, Lavinia
-  - name: Halas, Michael
-  - name: Fox, Susan H.
-  - name: Hoffman, Michael
-  - name: Hrynaszkiewicz, Iain
-  - name: Flake, Jessica Kay
-  - name: Jalil, Banaz
-  - name: Kip, Miriam Julia
-  - name: Lalu, Manoj Mathew
-  - name: Macleod, Malcolm Robert
-  - name: Manns, Braden
-  - name: Martone, Maryann Elizabeth
-  - name: Naudet, Florian
-  - name: Ng, Jeremy Y.
-  - name: Ménard, Alixe
-  - name: Poldrack, Russell A.
-  - name: Payne, Nicola
-  - name: Newton, Tim
-  - name: Proulx, Laurie
-  - name: Ramos, Janina
-  - name: Smith, Danny
-  - name: Thombs, Brett
-  - name: Wicherts, Jelte M.
-  - name: Mellor, David Thomas
-  identifiers: {}
-  links: {}
-  oa_url: https://doi.org/10.31222/osf.io/4qmua_v4
 - doi: 10.31222/osf.io/x64tn_v1
   title: 'Neurobagel: building an international network for distributed data discovery'
   year: 2026
