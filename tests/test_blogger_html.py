@@ -111,3 +111,30 @@ def test_image_handler_returning_none_drops_image():
 @pytest.mark.parametrize("raw", ["", "<div><br /></div>", "<!--StartFragment-->  <br />"])
 def test_empty_content(raw):
     assert html_to_markdown(raw) == ""
+
+
+MONO = '<span style="font-family: Courier New, Courier, monospace;">{}</span>'
+
+
+def test_monospace_lines_become_fenced_code_block():
+    html = (
+        "<div>Example:</div><div><br /></div>"
+        + "".join(
+            f"<div>{MONO.format(line)}</div>"
+            for line in ["&gt; library(NHANES)\n", "&gt; head(NHANES)\n", "&nbsp;&nbsp;&nbsp;ID &lt;NA&gt; [1]"]
+        )
+        + "<div><br /></div><div>After</div>"
+    )
+    assert html_to_markdown(html) == (
+        "Example:\n\n```\n> library(NHANES)\n> head(NHANES)\n   ID <NA> [1]\n```\n\nAfter"
+    )
+
+
+def test_inline_monospace_becomes_code():
+    html = "<div>Run " + MONO.format("ls -l") + " now</div>"
+    assert html_to_markdown(html) == "Run `ls -l` now"
+
+
+def test_nested_monospace_spans():
+    html = "<div>" + MONO.format("a " + MONO.format("b")) + "</div>"
+    assert html_to_markdown(html) == "```\na b\n```"
