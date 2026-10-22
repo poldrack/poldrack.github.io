@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Russ Poldrack">
+<meta name="dcterms.date" content="2018-01-22">
 
-<title>claude – Russ Poldrack</title>
+<title>Defaults in R can make debugging incredibly hard for beginners – Russ Poldrack</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,59 +22,25 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-d1b12f2568ecbe55642fee6aa00bd082.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<script src="../../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap-d1b12f2568ecbe55642fee6aa00bd082.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -102,17 +70,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }</script>
 
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../../../styles.css">
 </head>
 
 <body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../../index.html">
     <span class="navbar-title">Russ Poldrack</span>
     </a>
   </div>
@@ -123,15 +91,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./publications"> 
+    <a class="nav-link" href="../../../publications"> 
 <span class="menu-text">Publications</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./talks"> 
+    <a class="nav-link" href="../../../talks"> 
 <span class="menu-text">Talks</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="https://poldrack.github.io/blog"> 
+    <a class="nav-link" href="../../../blog/index.html"> 
 <span class="menu-text">Blog</span></a>
   </li>  
 </ul>
@@ -163,7 +131,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Defaults in R can make debugging incredibly hard for beginners</h1>
+                      </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Russ Poldrack </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">January 22, 2018</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
@@ -171,176 +167,77 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#claude.md" id="toc-claude.md" class="nav-link active" data-scroll-target="#claude.md">CLAUDE.md</a>
-  <ul class="collapse">
-  <li><a href="#project-overview" id="toc-project-overview" class="nav-link" data-scroll-target="#project-overview">Project Overview</a></li>
-  <li><a href="#build-and-development-commands" id="toc-build-and-development-commands" class="nav-link" data-scroll-target="#build-and-development-commands">Build and Development Commands</a>
-  <ul class="collapse">
-  <li><a href="#environment-setup" id="toc-environment-setup" class="nav-link" data-scroll-target="#environment-setup">Environment Setup</a></li>
-  <li><a href="#build-and-preview" id="toc-build-and-preview" class="nav-link" data-scroll-target="#build-and-preview">Build and Preview</a></li>
-  <li><a href="#post-build-processing" id="toc-post-build-processing" class="nav-link" data-scroll-target="#post-build-processing">Post-Build Processing</a></li>
-  </ul></li>
-  <li><a href="#architecture-and-key-files" id="toc-architecture-and-key-files" class="nav-link" data-scroll-target="#architecture-and-key-files">Architecture and Key Files</a>
-  <ul class="collapse">
-  <li><a href="#quarto-configuration" id="toc-quarto-configuration" class="nav-link" data-scroll-target="#quarto-configuration">Quarto Configuration</a></li>
-  <li><a href="#content-files-.qmd" id="toc-content-files-.qmd" class="nav-link" data-scroll-target="#content-files-.qmd">Content Files (<code>.qmd</code>)</a></li>
-  <li><a href="#configuration-files" id="toc-configuration-files" class="nav-link" data-scroll-target="#configuration-files">Configuration Files</a></li>
-  <li><a href="#python-scripts" id="toc-python-scripts" class="nav-link" data-scroll-target="#python-scripts">Python Scripts</a></li>
-  <li><a href="#python-package" id="toc-python-package" class="nav-link" data-scroll-target="#python-package">Python Package</a></li>
-  </ul></li>
-  <li><a href="#important-workflows" id="toc-important-workflows" class="nav-link" data-scroll-target="#important-workflows">Important Workflows</a>
-  <ul class="collapse">
-  <li><a href="#publishing-workflow" id="toc-publishing-workflow" class="nav-link" data-scroll-target="#publishing-workflow">Publishing Workflow</a></li>
-  <li><a href="#publications-update" id="toc-publications-update" class="nav-link" data-scroll-target="#publications-update">Publications Update</a></li>
-  </ul></li>
-  <li><a href="#key-dependencies" id="toc-key-dependencies" class="nav-link" data-scroll-target="#key-dependencies">Key Dependencies</a></li>
-  <li><a href="#site-deployment" id="toc-site-deployment" class="nav-link" data-scroll-target="#site-deployment">Site Deployment</a></li>
-  </ul></li>
+  <li><a href="#comment-captured-from-the-original-post" id="toc-comment-captured-from-the-original-post" class="nav-link active" data-scroll-target="#comment-captured-from-the-original-post">1 comment captured from the original post</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+<main class="content quarto-banner-title-block" id="quarto-document-content">
 
 
 
 
-<section id="claude.md" class="level1">
-<h1>CLAUDE.md</h1>
-<p>This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.</p>
-<section id="project-overview" class="level2">
-<h2 class="anchored" data-anchor-id="project-overview">Project Overview</h2>
-<p>This is a personal academic website for Russ Poldrack built with Quarto. The site automatically generates publication lists using the <code>academicdb</code> package and is deployed to GitHub Pages.</p>
-</section>
-<section id="build-and-development-commands" class="level2">
-<h2 class="anchored" data-anchor-id="build-and-development-commands">Build and Development Commands</h2>
-<section id="environment-setup" class="level3">
-<h3 class="anchored" data-anchor-id="environment-setup">Environment Setup</h3>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Install dependencies (uses uv for Python package management)</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">uv</span> sync</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Activate virtual environment if needed</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="bu">source</span> .venv/bin/activate</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="build-and-preview" class="level3">
-<h3 class="anchored" data-anchor-id="build-and-preview">Build and Preview</h3>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Render the entire Quarto site (outputs to docs/ directory)</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> render</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Preview the site locally with live reload</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> preview</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Render a specific page</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> render publications.qmd</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> render index.qmd</span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> render talks.qmd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="post-build-processing" class="level3">
-<h3 class="anchored" data-anchor-id="post-build-processing">Post-Build Processing</h3>
-<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Fix Mastodon rel="me" link after rendering (required for Mastodon verification)</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> fix_mastodon_link.py</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-</section>
-<section id="architecture-and-key-files" class="level2">
-<h2 class="anchored" data-anchor-id="architecture-and-key-files">Architecture and Key Files</h2>
-<section id="quarto-configuration" class="level3">
-<h3 class="anchored" data-anchor-id="quarto-configuration">Quarto Configuration</h3>
+
+<p><em>This was originally posted on Blogger <a href="https://russpoldrack.blogspot.com/2018/01/defaults-in-r-can-make-debugging.html">here</a>.</em></p>
+<p>I am teaching a <a href="https://psych10.github.io/">new undergraduate statistics class at Stanford</a>, and an important part of the course is teaching students to run their own analyses using R/RStudio. Most of the students have never coded before, and debugging turns out to be one of the major challenges. Working with students over the last few days I have found that a couple of the default features in R can combine to make debugging very difficult on occasion. Changing these defaults could have a big impact on new users’ early learning experiences.</p>
+<p>One of the datasets that we use is the NHANES dataset via the NHANES library. Over the last few days several students have experienced very strange problems, where the NHANES data frame doesn’t contain the appropriate data, even after restarting R and reloading the NHANES library. It turns out that this is due to several “features” in R:</p>
 <ul>
-<li><code>_quarto.yml</code>: Main site configuration
-<ul>
-<li>Defines website structure, navbar, and output directory (<code>docs/</code>)</li>
-<li>Sets HTML theme to “flatly” with custom CSS</li>
-<li>Output directory is <code>docs/</code> (for GitHub Pages deployment)</li>
-</ul></li>
+<li>Users are asked when exiting whether to save the workspace image, and the default is to save it.</li>
+<li>The global workspace (saved in ~/.RData) is by default automatically loaded upon starting R.</li>
+<li>When a package is loaded that contains a data object, this object is masked by any object in the global workspace with the same name.</li>
 </ul>
-</section>
-<section id="content-files-.qmd" class="level3">
-<h3 class="anchored" data-anchor-id="content-files-.qmd">Content Files (<code>.qmd</code>)</h3>
+<p>Here is an example. First I load the NHANES library, and check that the NHANES data frame contains the appropriate data.</p>
+<pre><code>&gt; library(NHANES)
+&gt; head(NHANES)
+     ID SurveyYr Gender Age AgeDecade AgeMonths Race1 Race3    Education MaritalStatus    HHIncome HHIncomeMid
+1 51624  2009_10   male  34     30-39       409 White  &lt;NA&gt;  High School       Married 25000-34999       30000
+2 51624  2009_10   male  34     30-39       409 White  &lt;NA&gt;  High School       Married 25000-34999       30000
+3 51624  2009_10   male  34     30-39       409 White  &lt;NA&gt;  High School       Married 25000-34999       30000
+4 51625  2009_10   male   4       0-9        49 Other  &lt;NA&gt;         &lt;NA&gt;          &lt;NA&gt; 20000-24999       22500
+5 51630  2009_10 female  49     40-49       596 White  &lt;NA&gt; Some College   LivePartner 35000-44999       40000
+6 51638  2009_10   male   9       0-9       115 White  &lt;NA&gt;         &lt;NA&gt;          &lt;NA&gt; 75000-99999       87500</code></pre>
+<p>Now let’s say that I accidentally set NHANES to some other value:</p>
+<pre><code>NHANES=NA
+&gt; NHANES
+[1] NA</code></pre>
+<p>Now I quit RStudio, clicking the default “Save” option to save the workspace, and then restart RStudio. I get a message telling me that the workspace was loaded, and I see that my altered version of the NHANES variable still exists. I would think that reloading the NHANES library should fix this, but this is what happens:</p>
+<pre><code>&gt; library(NHANES)
+
+Attaching package: ‘NHANES’
+
+The following object is masked _by_ ‘.GlobalEnv’:
+
+    NHANES
+
+&gt; NHANES
+[1] NA</code></pre>
+<p>That is, objects in the global environment take precedence over newly loaded objects. If one didn’t know how to parse that warning they would have no idea that this loading operation is having no effect. The only way rid ourselves of this broken variable is either restart R after removing ~/.RData, or remove the variable from the global workspace:</p>
+<pre><code>&gt; rm(NHANES, envir = globalenv())
+&gt; library(NHANES)
+&gt; head(NHANES)
+     ID SurveyYr Gender Age AgeDecade AgeMonths Race1 Race3    Education MaritalStatus    HHIncome HHIncomeMid
+1 51624  2009_10   male  34     30-39       409 White  &lt;NA&gt;  High School       Married 25000-34999       30000
+2 51624  2009_10   male  34     30-39       409 White  &lt;NA&gt;  High School       Married 25000-34999       30000
+3 51624  2009_10   male  34     30-39       409 White  &lt;NA&gt;  High School       Married 25000-34999       30000
+4 51625  2009_10   male   4       0-9        49 Other  &lt;NA&gt;         &lt;NA&gt;          &lt;NA&gt; 20000-24999       22500
+5 51630  2009_10 female  49     40-49       596 White  &lt;NA&gt; Some College   LivePartner 35000-44999       40000
+6 51638  2009_10   male   9       0-9       115 White  &lt;NA&gt;         &lt;NA&gt;          &lt;NA&gt; 75000-99999       87500</code></pre>
+<p>This seems like a combination of really problematic default behaviors to me: automatically saving and then loading the global workspace by default, and masking objects loaded from libraries with objects in the workspace. Together they have resulted in hours of unnecessary confusion and frustration for my students, at exactly the point in their learning curve where it is most problematic to do so.</p>
+<p>I have one simple suggestion for the R developers: Please turn off automatic loading of the workspace by default. It would be as simple as changing the default on one radio box, and it would potentially save new users lots of time and frustration.</p>
+<p>Until that happens, beginning R users should do the following:</p>
 <ul>
-<li><code>index.qmd</code>: Home page with bio and profile information
-<ul>
-<li>Uses custom grid layout with rounded profile image</li>
-<li>Links to external profiles and resources</li>
-</ul></li>
-<li><code>publications.qmd</code>: Dynamically generated publication list
-<ul>
-<li>Embeds Python code that reads publications from a JSON file</li>
-<li>Reads from <code>~/.cache/academicdb/publications.json</code></li>
-<li>Formats publications by year with author lists, titles, DOI links, and venue information</li>
-<li>Filters out publications marked as ignored</li>
-</ul></li>
-<li><code>talks.qmd</code>: Static list of YouTube videos and talk slides</li>
+<li>Under the Preferences panel (the General Tab in R), unselect the “Restore .RData into workspace on startup” option.</li>
+<li>I would also recommend setting the “Save workspace to .RData on exit” preference to “Never”, since I find that I generally only restart R when I want the entire workspace cleared out, so this option will never be of use to me.</li>
 </ul>
-</section>
-<section id="configuration-files" class="level3">
-<h3 class="anchored" data-anchor-id="configuration-files">Configuration Files</h3>
-<ul>
-<li><code>config.toml</code>: Legacy configuration file (no longer used for publications)
-<ul>
-<li>Previously contained academicdb database credentials</li>
-<li>May still contain researcher metadata</li>
-</ul></li>
-<li><code>pyproject.toml</code>: Python project dependencies
-<ul>
-<li>Key dependencies: quarto, quarto-cli, pygithub, pandas</li>
-<li>Note: <code>academicdb</code> is listed but only used for generating the source JSON file</li>
-</ul></li>
-</ul>
-</section>
-<section id="python-scripts" class="level3">
-<h3 class="anchored" data-anchor-id="python-scripts">Python Scripts</h3>
-<ul>
-<li><code>fix_mastodon_link.py</code>: Post-processing script
-<ul>
-<li>Adds <code>rel="me"</code> attribute to Mastodon link in rendered HTML</li>
-<li>Must be run after <code>quarto render</code> to maintain Mastodon verification</li>
-<li>Modifies <code>docs/index.html</code> directly</li>
-</ul></li>
-</ul>
-</section>
-<section id="python-package" class="level3">
-<h3 class="anchored" data-anchor-id="python-package">Python Package</h3>
-<ul>
-<li><code>src/poldrack_github_io/</code>: Minimal Python package (currently just a placeholder)</li>
-</ul>
-</section>
-</section>
-<section id="important-workflows" class="level2">
-<h2 class="anchored" data-anchor-id="important-workflows">Important Workflows</h2>
-<section id="publishing-workflow" class="level3">
-<h3 class="anchored" data-anchor-id="publishing-workflow">Publishing Workflow</h3>
-<ol type="1">
-<li>Modify content in <code>.qmd</code> files</li>
-<li>Run <code>quarto render</code> to generate HTML in <code>docs/</code></li>
-<li>Run <code>python fix_mastodon_link.py</code> to fix Mastodon link</li>
-<li>Commit and push changes (GitHub Pages serves from <code>docs/</code> directory)</li>
-</ol>
-</section>
-<section id="publications-update" class="level3">
-<h3 class="anchored" data-anchor-id="publications-update">Publications Update</h3>
-<p>The publications list is read from a static JSON file at <code>~/.cache/academicdb/publications.json</code>. To update: 1. Update the JSON file (typically using academicdb tools externally) 2. Re-render the page:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> render publications.qmd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-</section>
-<section id="key-dependencies" class="level2">
-<h2 class="anchored" data-anchor-id="key-dependencies">Key Dependencies</h2>
-<ul>
-<li><strong>Quarto</strong>: Static site generator for technical content</li>
-<li><strong>Python standard library</strong>: Used for reading and formatting JSON publication data</li>
-<li><strong>PyGitHub</strong>: Used for GitHub integration</li>
-<li><strong>uv</strong>: Python package manager (replacement for pip/poetry)</li>
-</ul>
-</section>
-<section id="site-deployment" class="level2">
-<h2 class="anchored" data-anchor-id="site-deployment">Site Deployment</h2>
-<ul>
-<li>Hosted on GitHub Pages</li>
-<li>Serves from <code>docs/</code> directory (configured in <code>_quarto.yml</code>)</li>
-<li>Main branch is used for deployment</li>
-</ul>
+<hr>
+<section id="comment-captured-from-the-original-post" class="level2">
+<h2 class="anchored" data-anchor-id="comment-captured-from-the-original-post">1 comment captured from the <a href="https://russpoldrack.blogspot.com/2018/01/defaults-in-r-can-make-debugging.html">original post</a></h2>
+<p><strong>muswellbrook</strong> · 2018-01-22</p>
+<blockquote class="blockquote">
+<p>I agree. I found exactly the same problem when I first started using R and quickly discovered the solutions you describe here. But the problem is the quirky default behavior. And I suspect most experienced R users don’t even think about it anymore (because they have changed their default settings). But it is annoying and especially so when you discover there is no appropriate command to clear the workspace and the recommended method is to restart R</p>
+</blockquote>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
