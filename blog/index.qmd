@@ -11,4 +11,7 @@ page-layout: full
 title-block-banner: true
 ---
 
+::: {.callout-note appearance="simple"}
+My new blog posts can be found on my Substack: [russpoldrack.substack.com](https://russpoldrack.substack.com/). This page archives my older posts.
+:::
 
