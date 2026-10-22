@@ -103,6 +103,6 @@ quarto render publications.qmd
 - **uv**: Python package manager (replacement for pip/poetry)
 
 ## Site Deployment
-- Hosted on GitHub Pages
-- Serves from `docs/` directory (configured in `_quarto.yml`)
-- Main branch is used for deployment
+- Hosted on GitHub Pages, deployed by GitHub Actions (`.github/workflows/render.yml`)
+- Every push to `main` runs `quarto render .` and `fix_mastodon_link.py` in CI and deploys the result
+- The committed `docs/` folder is not what gets served; local renders are only for previewing
