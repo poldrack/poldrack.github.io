@@ -29,24 +29,28 @@ PANDOC_FORMAT = "markdown" + "".join(
         "implicit_figures", "smart",
     ]
 )
-VIDEO_MARKER = "QUARTOVIDEOMARKER"
+RAW_MARKER = "QUARTORAWBLOCK"
+MONOSPACE = re.compile(r"courier|monospace|consolas", re.I)
 
 
 def html_to_markdown(html, image_handler=None):
     """Convert Blogger HTML to Markdown, optionally rewriting image sources."""
     soup = BeautifulSoup(html, "html.parser")
-    videos = clean(soup, image_handler)
+    raw_blocks = clean(soup, image_handler)
     markdown = run_pandoc(str(soup))
-    return insert_videos(markdown, videos)
+    return insert_raw_blocks(markdown, raw_blocks)
 
 
 def clean(soup, image_handler):
+    """Simplify the HTML in place; return Markdown blocks pandoc must not see."""
+    raw_blocks = []
     remove_junk(soup)
     upgrade_linked_images(soup)
     convert_caption_tables(soup)
     if image_handler:
         rewrite_images(soup, image_handler)
-    videos = replace_iframes(soup)
+    replace_iframes(soup, raw_blocks)
+    mark_monospace(soup)
     for tag in soup.find_all(INLINE_WRAPPERS):
         tag.unwrap()
     strip_attributes(soup)
@@ -56,7 +60,8 @@ def clean(soup, image_handler):
         paragraphize(quote)
     for cell in soup.find_all(["li", "td", "th", "dd", "dt"]):
         strip_edge_breaks(cell)
-    return videos
+    replace_code_blocks(soup, raw_blocks)
+    return raw_blocks
 
 
 def remove_junk(soup):
@@ -130,20 +135,43 @@ def drop_image(img):
         parent.decompose()
 
 
-def replace_iframes(soup):
-    videos = []
-    for iframe in soup.find_all("iframe"):
-        videos.append(iframe.get("src", "").split("?")[0])
-        marker = soup.new_tag("p")
-        marker.string = f"{VIDEO_MARKER}{len(videos) - 1}"
-        iframe.replace_with(marker)
-    return videos
+def replace_with_raw_block(soup, node, markdown, raw_blocks):
+    """Swap node for a placeholder paragraph that is later replaced by markdown."""
+    marker = soup.new_tag("p")
+    marker.string = f"{RAW_MARKER}{len(raw_blocks)}END"
+    raw_blocks.append(markdown)
+    node.replace_with(marker)
 
 
-def insert_videos(markdown, videos):
-    for index, url in enumerate(videos):
-        markdown = markdown.replace(f"{VIDEO_MARKER}{index}", f"{{{{< video {url} >}}}}")
+def insert_raw_blocks(markdown, raw_blocks):
+    for index, block in enumerate(raw_blocks):
+        markdown = markdown.replace(f"{RAW_MARKER}{index}END", block)
     return markdown
+
+
+def replace_iframes(soup, raw_blocks):
+    for iframe in soup.find_all("iframe"):
+        url = iframe.get("src", "").split("?")[0]
+        replace_with_raw_block(soup, iframe, f"{{{{< video {url} >}}}}", raw_blocks)
+
+
+def replace_code_blocks(soup, raw_blocks):
+    for pre in soup.find_all("pre"):
+        replace_with_raw_block(soup, pre, f"```\n{pre.get_text()}\n```", raw_blocks)
+
+
+def is_monospace(tag):
+    font = tag.get("style", "") + " " + tag.get("face", "")
+    return tag.name in ("span", "font") and bool(MONOSPACE.search(font))
+
+
+def mark_monospace(soup):
+    """Turn Courier-styled spans into <code>, merging nested ones."""
+    for tag in soup.find_all(is_monospace):
+        tag.name = "code"
+    for tag in soup.find_all("code"):
+        if tag.find_parent("code"):
+            tag.unwrap()
 
 
 def strip_attributes(soup):
@@ -206,10 +234,30 @@ def flush(soup, items, current):
         current.pop()
     if not current:
         return items
+    if is_code_only(current):
+        return items + [code_block(soup, current)]
     paragraph = soup.new_tag("p")
     for node in current:
         paragraph.append(node)
     return items + [paragraph]
+
+
+def is_code_only(nodes):
+    content = [n for n in nodes if not (is_blank(n) or is_break(n))]
+    return all(isinstance(n, Tag) and n.name == "code" for n in content)
+
+
+def code_block(soup, nodes):
+    """Join code lines (separated by <br>) into a single <pre> block."""
+    lines = [""]
+    for node in nodes:
+        if is_break(node):
+            lines.append("")
+        elif not is_blank(node):
+            lines[-1] += node.get_text()
+    pre = soup.new_tag("pre")
+    pre.string = "\n".join(line.rstrip() for line in lines)
+    return pre
 
 
 def strip_edge_breaks(tag):
