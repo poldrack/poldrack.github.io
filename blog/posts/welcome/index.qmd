@@ -1,0 +1,9 @@
+---
+title: Welcome
+author: Russ Poldrack
+date: '2010-10-14'
+---
+
+*This was originally posted on Blogger [here](https://russpoldrack.blogspot.com/2010/10/welcome.html).*
+
+I've set up this personal site so I will have a place to spout off about the various things that I think about that don't fall under the purview of the my [Huffington Post blog](http://www.huffingtonpost.com/russell-poldrack) (which is focused on implications of research for daily living) or the [Cognitive Atlas blog](http://blog.cognitiveatlas.org/) (which is focused on topics related to our [Cognitive Atlas project](http://www.cognitiveatlas.org/)). I will probably focus mostly on science issues, productivity tools and workflows, and food and travel.

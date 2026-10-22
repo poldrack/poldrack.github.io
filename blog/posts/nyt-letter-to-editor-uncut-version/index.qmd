@@ -1,0 +1,61 @@
+---
+title: 'NYT Letter to the Editor: The uncut version'
+author: Russ Poldrack
+date: '2011-10-04'
+---
+
+*This was originally posted on Blogger [here](https://russpoldrack.blogspot.com/2011/10/nyt-letter-to-editor-uncut-version.html).*
+
+The NY Times has now printed [our letter to the editor](http://www.nytimes.com/2011/10/05/opinion/the-iphone-and-the-brain.html) regarding the Lindstrom article. However, the published version is an edited and shortened version of our original letter, which I am posting here for the record.
+
+Dear Editor,\
+The Op-Ed “You Love Your iPhone, Literally” by Martin Lindstrom purports to show, using brain imaging, that our attachment to digital devices, reflects not addiction but instead the same kind of emotion that we feel for human loved ones. However, the evidence the author presents does not show this. The region that he points to as being “associated with feelings of love and compassion” (the insular cortex) is a brain region that is active in [as many as one third of all brain imaging studies](http://www.nature.com/nmeth/journal/v8/n8/full/nmeth.1635.html). Further, in studies of decision making the insula is more often associated with negative than positive emotions. The kind of reasoning that Lindstrom uses is well known to be flawed, because there is rarely a one-to-one mapping between any brain region and a single mental state; insula activity could reflect one or more of several psychological processes. This same point [was made by some of us](http://www.nytimes.com/2007/11/14/opinion/lweb14brain.html) regarding a [similar Op-Ed piece in 2007](http://www.nytimes.com/2007/11/11/opinion/11freedman.html)).\
+We are disappointed that the Times has published extravagant claims based on scientific data that have not been subjected to the standard scientific review process, especially considering how often its pages exhort policy makers to pay more attention to peer-reviewed scientific evidence and disregard specious claims.\
+Sincerely,
+
+Russell Poldrack, Ph.D., University of Texas at Austin\
+Geoffrey K Aguirre, M.D., Ph.D., University of Pennsylvania\
+Adam Aron, Ph.D., University of California at San Diego\
+Lisa Feldman Barrett, Ph.D., Northeastern University\
+Mark G. Baxter, Ph.D., Mount Sinai School of Medicine\
+Susan Bookheimer, Ph.D., University of California at Los Angeles\
+Colin Camerer, Ph.D., California Institute of Technology\
+McKell Carter, Ph.D., Duke University\
+Christopher Chabris, Ph.D., Union College\
+Molly Crockett, Ph.D., University of Zurich, Switzerland\
+Nathaniel Daw, Ph.D., New York University\
+Paul Downing, Ph.D., University of Bangor, Wales, UK\
+Russell Epstein, Ph.D., University of Pennsylvania\
+Michael Frank, Ph.D., Brown University\
+Janet Frick, Ph.D., University of Georgia\
+Paul Glimcher, Ph.D., New York University\
+Tom Hartley, Ph.D., University of York, UK\
+Benjamin Hayden, Ph.D., University of Rochester\
+Hauke R. Heekeren, M.D., Freie Universität Berlin, Germany\
+Simon Hjerrild, M.D., University of Aarhus, Denmark\
+Scott Huettel, Ph.D., Duke University\
+Nancy Kanwisher, Ph.D., Massachusetts Institute of Technology\
+Brian Knutson, Ph.D., Stanford University\
+John Kubie, Ph.D., SUNY Downstate Medical Center\
+Michael V. Lombardo, Ph.D., University of Cambridge, UK\
+Ken Norman, Ph.D., Princeton University\
+Olivier Oullier, Ph.D., Aix-Marseille University, France\
+Steven Petersen, Ph.D., Washington University\
+Elizabeth Phelps, Ph.D., New York University\
+Rajeev Raizada, Ph.D., Cornell University\
+Antonio Rangel, Ph.D., California Institute of Technology\
+Peter B. Reiner, Ph.D., University of British Columbia, Canada\
+Gregory Samanez-Larkin, Ph.D., Vanderbilt University\
+Geoff Schoenbaum, M.D., Ph.D., University of Maryland\
+Daphna Shohamy, Ph.D., Columbia University\
+Jon Simons, Ph.D., University of Cambridge, UK\
+Peter Sokol-Hessner, Ph.D., California Institute of Technology\
+David Somers, Ph.D., Boston University\
+Damian Stanley, Ph.D., California Institute of Technology\
+John Van Horn, Ph.D., University of California at Los Angeles\
+Bradley Voytek, Ph.D., University of California, San Francisco\
+Anthony Wagner, PhD, Stanford University.\
+Daniel Willingham, Ph.D., University of Virginia\
+Tal Yarkoni, Ph.D., University of Colorado Boulder\
+Jeff Zacks, Ph.D., Washington University\
+Jamil Zaki, Ph.D., Harvard University
