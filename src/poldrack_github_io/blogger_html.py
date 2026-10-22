@@ -3,9 +3,13 @@
 import re
 import shutil
 import subprocess
+import warnings
 from urllib.parse import urlparse
 
-from bs4 import BeautifulSoup, Comment, NavigableString, Tag
+from bs4 import BeautifulSoup, Comment, MarkupResemblesLocatorWarning, NavigableString, Tag
+
+# Short comments such as "http://example.com" trigger a spurious warning.
+warnings.filterwarnings("ignore", category=MarkupResemblesLocatorWarning)
 
 JUNK_TAGS = ["style", "script", "xml", "meta", "link", "title"]
 INLINE_WRAPPERS = ["span", "font", "u", "small", "abbr", "big", "center"]
