@@ -15,10 +15,7 @@ format:
 from datetime import date
 import yaml
 from pathlib import Path
-import sys
-
-sys.path.insert(0, 'src')
-from poldrack_github_io.publications import format_publication
+import os
 
 # Read publications from YAML file
 yaml_file = Path('publications.yml')
@@ -50,7 +47,8 @@ sorted_years = sorted(pubs_by_year.keys(), reverse=True)
 for year in sorted_years:
     print(f'\n## {year}\n')
     for pub in pubs_by_year[year]:
-        print('- ' + format_publication(pub))
+        # The citation is pre-formatted by academicdb (academic/publish/citations.py)
+        print('- ' + pub['citation'])
         print()
 
 print('\ \n\ \n')
