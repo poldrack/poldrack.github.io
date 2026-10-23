@@ -11,9 +11,9 @@ website:
   navbar:
     left:
       - text: "Publications"
-        href: publications
+        href: publications.qmd
       - text: "Talks"
-        href: talks
+        href: talks.qmd
       - text: "Blog"
         href: blog/index.qmd
     right:
